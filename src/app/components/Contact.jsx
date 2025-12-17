@@ -67,7 +67,7 @@ function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://portfolio-backend-ebon-kappa.vercel.app', {
+      const response = await fetch('https://portfolio-backend-ebon-kappa.vercel.app/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
