@@ -14,8 +14,8 @@ function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
-  //const GEMINI_API_KEY = "AIzaSyChNGQ0YYKZO5UAQmfvgeDaFtggojHWWRU";
-  //const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
+  const GEMINI_API_KEY = "AIzaSyChNGQ0YYKZO5UAQmfvgeDaFtggojHWWRU";
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
