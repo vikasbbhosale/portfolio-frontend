@@ -1,0 +1,242 @@
+
+:root {
+  /* Neon Colors */
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff006e;
+  --neon-purple: #a855f7;
+  --neon-orange: #ff6b00;
+  --neon-green: #00ff94;
+  --neon-yellow: #ffea00;
+  
+  /* Gradients */
+  --gradient-neon: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple));
+  --gradient-fire: linear-gradient(180deg, #ff6b00, #ff006e, #a855f7);
+  
+  /* Spacing */
+  --section-padding: 100px 20px;
+  --container-max-width: 1200px;
+  
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-robotic: all 0.2s steps(3);
+}
+
+/* Dark Theme (Default) */
+[data-theme='dark'] {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border-color: #222222;
+  --shadow-glow: rgba(0, 240, 255, 0.3);
+}
+
+/* Light Theme */
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-card: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --shadow-glow: rgba(168, 85, 247, 0.3);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typography defaults */
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+}
+
+section {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+.neon-text {
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.robotic-hover {
+  transition: var(--transition-robotic);
+}
+
+.robotic-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-pink), var(--neon-orange));
+}
+
+
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 80px 20px;
+  }
+  
+  h1 {
+    font-size: 2.75rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 16px;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+

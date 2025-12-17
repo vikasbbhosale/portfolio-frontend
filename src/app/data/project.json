@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Movie Website",
+    "description": "movie website built with React, Node.js, and TMDB API. Features include movie search, details, trailers, and user reviews.",
+    "image": "/moviewebsite.png",
+    "github": "https://github.com/vikasbbhosale/movie-website",
+    "live": "https://vikasmoviewebsite.netlify.app"
+  },
+  {
+    "id": 2,
+    "name": "hospital management system",
+    "description": "A full-stack hospital management system using MERN stack. Features patient records, appointment scheduling, and billing management.",
+    "image": "/hospital.webp",
+    "github": "https://github.com/yourusername/taskmanager",
+    "live": "https://taskmanager-demo.netlify.app"
+  }
+]
