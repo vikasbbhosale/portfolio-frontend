@@ -14,8 +14,8 @@ function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const GEMINI_API_KEY = "AIzaSyChNGQ0YYKZO5UAQmfvgeDaFtggojHWWRU";
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
+  const GEMINI_API_KEY = "AIzaSyDBTPJlfnsfXJVuViL20OHSF38wXeuLcSA";
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -161,3 +161,129 @@ function Chatbot() {
 }
 
 export default Chatbot;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useRef, useEffect } from "react";
+// import "../styles/chatbot.css";
+
+// function Chatbot() {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [messages, setMessages] = useState([
+//     {
+//       role: "bot",
+//       content: "Hi! I'm Vikas Assistant 🤖. Ask me anything!"
+//     }
+//   ]);
+//   const [inputValue, setInputValue] = useState("");
+//   const [isLoading, setIsLoading] = useState(false);
+//   const messagesEndRef = useRef(null);
+
+//   useEffect(() => {
+//     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+//   }, [messages]);
+
+//   const sendMessage = async () => {
+//     if (!inputValue.trim()) return;
+
+//     const userMessage = inputValue;
+//     setInputValue("");
+
+//     setMessages(prev => [...prev, { role: "user", content: userMessage }]);
+//     setIsLoading(true);
+
+//     try {
+//       const response = await fetch("http://localhost:5000/chat", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({ message: userMessage })
+//       });
+
+//       const data = await response.json();
+
+//       const botResponse =
+//         data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+//         "No response from AI.";
+
+//       setMessages(prev => [...prev, { role: "bot", content: botResponse }]);
+//     } catch (error) {
+//       setMessages(prev => [
+//         ...prev,
+//         { role: "bot", content: "❌ Server error. Try again later." }
+//       ]);
+//     }
+
+//     setIsLoading(false);
+//   };
+
+//   const handleKeyPress = e => {
+//     if (e.key === "Enter") {
+//       e.preventDefault();
+//       sendMessage();
+//     }
+//   };
+
+//   return (
+//     <div className="chatbot">
+//       {!isOpen && (
+//         <button className="chatbot-button" onClick={() => setIsOpen(true)}>
+//           🤖
+//         </button>
+//       )}
+
+//       {isOpen && (
+//         <div className="chatbot-window">
+//           <div className="chatbot-header">
+//             <h4>Vikas Assistant</h4>
+//             <button onClick={() => setIsOpen(false)}>−</button>
+//           </div>
+
+//           <div className="chatbot-messages">
+//             {messages.map((msg, index) => (
+//               <div key={index} className={`message ${msg.role}`}>
+//                 <div className="bubble">{msg.content}</div>
+//               </div>
+//             ))}
+
+//             {isLoading && (
+//               <div className="message bot">
+//                 <div className="bubble">Typing...</div>
+//               </div>
+//             )}
+//             <div ref={messagesEndRef} />
+//           </div>
+
+//           <div className="chatbot-input">
+//             <input
+//               type="text"
+//               placeholder="Type your message..."
+//               value={inputValue}
+//               onChange={e => setInputValue(e.target.value)}
+//               onKeyPress={handleKeyPress}
+//               disabled={isLoading}
+//             />
+//             <button onClick={sendMessage} disabled={isLoading}>
+//               Send
+//             </button>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Chatbot;
+
